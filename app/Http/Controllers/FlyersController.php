@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FlyerRequest;
+use App\Flyer;
 
 class FlyersController extends Controller
 {
@@ -35,9 +37,14 @@ class FlyersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FlyerRequest $request)
     {
-        //
+
+      //Validation wird im FlyerRequest gemacht
+        Flyer::create($request->all());
+        return redirect()->back(); //temporary
+        //persist
+        //redirect to a landing page
     }
 
     /**

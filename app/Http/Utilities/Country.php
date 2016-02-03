@@ -30,7 +30,7 @@ class Country{
     "Bermuda"                                      => "bm",
     "Bhutan"                                       => "bt",
     "Bolivia"                                      => "bo",
-    "Bosnia and Herzegowina"                       => "ba",
+    "Bosnia and Herzegovina"                       => "ba",
     "Botswana"                                     => "bw",
     "Bouvet Island"                                => "bv",
     "Brazil"                                       => "br",
@@ -245,6 +245,7 @@ class Country{
   ];
   public static function all()
   {
-    return array_keys(static::$countries);
+    //return array_keys(static::$countries);
+    return static::$countries;
   }
 }
