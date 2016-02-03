@@ -29,8 +29,5 @@ Route::group(['middleware' => ['web']], function () {
         return view('pages.home');
     });
 
-    Route::get('about', function()
-    {
-        return 'About Us';
-    });
+    Route::resource('flyers','FlyersController');
 });
