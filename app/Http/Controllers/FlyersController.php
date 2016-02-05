@@ -28,6 +28,7 @@ class FlyersController extends Controller
      */
     public function create()
     {
+        //flash()->overlay('Success','Your Flyer has been successfull saved in our DB','error');
         return view('flyers.create');
     }
 
@@ -41,7 +42,9 @@ class FlyersController extends Controller
     {
 
       //Validation wird im FlyerRequest gemacht
+
         Flyer::create($request->all());
+        flash()->info('Success','Your Flyer has been successfull saved in our DB');
         return redirect()->back(); //temporary
         //persist
         //redirect to a landing page
