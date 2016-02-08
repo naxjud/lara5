@@ -5,12 +5,8 @@
     <title>Project Flyer</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
-
-
   </head>
   <body>
-
-
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -34,12 +30,18 @@
     </nav>
     <div class="container">
 
-
-
   @yield('content')
 </div>
 
 <script src="{{ asset('js/libs.js') }}"></script>
+<script>
+Dropzone.options.addPhotosForm ={
+  paramName:'photo',
+  maxFilesize:3,
+  acceptedFiles: '.jpg, .jpeg, .png, .bmp'
+};
+</script>
+
 @include('flash')
 
 

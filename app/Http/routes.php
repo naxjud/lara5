@@ -15,7 +15,7 @@
 /*
 |--------------------------------------------------------------------------
 | Application Routes
-|--------------------------------------------------------------------------
+|--------------------------   ------------------------------------------------
 |
 | This route group applies the "web" middleware group to every route
 | it contains. The "web" middleware group is defined in your HTTP
@@ -30,4 +30,8 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::resource('flyers','FlyersController');
+
+    Route::get('{zip}/{street}','FlyersController@show');
+
+    Route::post('{zip}/{street}/photos','FlyersController@addPhoto');
 });
