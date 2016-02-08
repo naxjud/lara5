@@ -17,8 +17,12 @@
     </div>
   </div>
 
-  <form id="addPhotosForm" action="{{URL::To($flyer->zip.'/'. $flyer->street)}}/photos" method="post" class="dropzone" id="my-awesome-dropzone">
-    {{ csrf_field()}}
+  <form
+    id="addPhotosForm"
+    action="{{route('store_photo_path',[$flyer->zip,$flyer->street])}}" 
+    method="post"
+    class="dropzone" id="my-awesome-dropzone">
+      {{ csrf_field()}}
   </form>
 
 @stop

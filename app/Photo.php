@@ -3,21 +3,34 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Photo extends Model
 {
-    protected $table='flyer_photos';
+  protected $table='flyer_photos';
 
-    protected $fillable=['path'];
-    /**
-     * undocumented function summary
-     *
-     * Undocumented function long description
-     *
-     * @param type var Description
-     **/
-    public function flyer()
-    {
-        return $this->belongsTo('App\Flyer');
-    }
+  protected $fillable=['path'];
+
+  protected $baseDir = 'flyers/photos';
+
+
+  public static function fromForm(UploadedFile $file){
+
+    $photo = new static;
+
+    $name = time(). $file->getClientOriginalName();
+
+    $photo->path = $photo->baseDir .'/'.$name;
+
+    $file->move($photo->baseDir, $name);
+
+    return $photo;
+
+  }
+
+
+  public function flyer()
+  {
+    return $this->belongsTo('App\Flyer');
+  }
 }
